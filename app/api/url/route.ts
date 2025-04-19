@@ -37,13 +37,5 @@ export async function POST(request: Request) {
     }
 
     const result = await createNewUrl(url, alias);
-
-    if (result.error) {
-        return NextResponse.json(
-            { error: result.error },
-            { status: 409 }
-        );
-    }
-
     return NextResponse.json(result);
 }
