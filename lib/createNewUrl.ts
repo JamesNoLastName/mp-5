@@ -16,6 +16,12 @@ export default async function createNewUrl(
 
     const UrlCollection = await getCollection(URL_COLLECTION);
 
+    // ✅ Check if alias already exists
+    const existing = await UrlCollection.findOne({ alias });
+    if (existing) {
+        throw new Error("Alias already exists. Please choose a different one.");
+    }
+
     const res = await UrlCollection.insertOne(p);
 
     if (!res.acknowledged) {

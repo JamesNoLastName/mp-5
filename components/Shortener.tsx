@@ -79,7 +79,7 @@ export default function Shortener() {
             }
         } catch (err) {
             console.error(err);
-            setError("An error occurred. Please try again.");
+            setError("Alias in use, please try another.");
         }
     };
 
